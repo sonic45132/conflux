@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Torrents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Size</th>
+      <th>Category</th>
+      <th>Nfiles</th>
+      <th>Files</th>
+      <th>Seeders</th>
+      <th>Leechers</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @torrents.each do |torrent| %>
+      <tr>
+        <td><%= torrent.title %></td>
+        <td><%= torrent.description %></td>
+        <td><%= torrent.size %></td>
+        <td><%= torrent.category %></td>
+        <td><%= torrent.nfiles %></td>
+        <td><%= torrent.files %></td>
+        <td><%= torrent.seeders %></td>
+        <td><%= torrent.leechers %></td>
+        <td><%= link_to 'Show', torrent %></td>
+        <td><%= link_to 'Edit', edit_torrent_path(torrent) %></td>
+        <td><%= link_to 'Destroy', torrent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Torrent', new_torrent_path %>
