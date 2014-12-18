@@ -1,3 +1,19 @@
+# == Route Map
+#
+#                  Prefix Verb   URI Pattern                        Controller#Action
+#  static_controller_home GET    /static_controller/home(.:format)  static_controller#home
+# static_controller_about GET    /static_controller/about(.:format) static_controller#about
+# static_controller_sites GET    /static_controller/sites(.:format) static_controller#sites
+#                torrents GET    /torrents(.:format)                torrents#index
+#                         POST   /torrents(.:format)                torrents#create
+#             new_torrent GET    /torrents/new(.:format)            torrents#new
+#            edit_torrent GET    /torrents/:id/edit(.:format)       torrents#edit
+#                 torrent GET    /torrents/:id(.:format)            torrents#show
+#                         PATCH  /torrents/:id(.:format)            torrents#update
+#                         PUT    /torrents/:id(.:format)            torrents#update
+#                         DELETE /torrents/:id(.:format)            torrents#destroy
+#
+
 Rails.application.routes.draw do
   get 'static_controller/home'
 
