@@ -1,0 +1,8 @@
+torrents:
+
+users:
+  name:string
+  email:string
+  status:integer
+  password:password
+  

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'static_controller/home'
+
+  get 'static_controller/about'
+
+  get 'static_controller/sites'
+
   resources :torrents
 
   # The priority is based upon order of creation: first created -> highest priority.
