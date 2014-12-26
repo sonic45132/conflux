@@ -1,0 +1,2 @@
+1.) Change user and torrent relation since it only there to get users name. Maybe replace by just the users name.
+2.) 
