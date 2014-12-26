@@ -9,7 +9,7 @@ class CreateTorrents < ActiveRecord::Migration
       t.text :files
       t.integer :seeders
       t.integer :leechers
-
+      t.belongs_to :user, index: true
       t.timestamps null: false
     end
   end

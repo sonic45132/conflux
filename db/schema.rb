@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217072228) do
+ActiveRecord::Schema.define(version: 20141226025412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "torrents", force: true do |t|
+  create_table "torrents", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.float    "size"
@@ -25,8 +25,20 @@ ActiveRecord::Schema.define(version: 20141217072228) do
     t.text     "files"
     t.integer  "seeders"
     t.integer  "leechers"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  add_index "torrents", ["user_id"], name: "index_torrents_on_user_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "password_digst"
+    t.string   "email"
+    t.integer  "status"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end

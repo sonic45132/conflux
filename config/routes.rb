@@ -1,10 +1,14 @@
 # == Route Map
 #
 #       Prefix Verb   URI Pattern                  Controller#Action
-#         root GET    /                            static_controller#home
-#         home GET    /home(.:format)              static_controller#home
-#        about GET    /about(.:format)             static_controller#about
-#        sites GET    /sites(.:format)             static_controller#sites
+#        users GET    /users(.:format)             users#index
+#              POST   /users(.:format)             users#create
+#     new_user GET    /users/new(.:format)         users#new
+#    edit_user GET    /users/:id/edit(.:format)    users#edit
+#         user GET    /users/:id(.:format)         users#show
+#              PATCH  /users/:id(.:format)         users#update
+#              PUT    /users/:id(.:format)         users#update
+#              DELETE /users/:id(.:format)         users#destroy
 #     torrents GET    /torrents(.:format)          torrents#index
 #              POST   /torrents(.:format)          torrents#create
 #  new_torrent GET    /torrents/new(.:format)      torrents#new
@@ -13,9 +17,17 @@
 #              PATCH  /torrents/:id(.:format)      torrents#update
 #              PUT    /torrents/:id(.:format)      torrents#update
 #              DELETE /torrents/:id(.:format)      torrents#destroy
+#         root GET    /                            static_controller#home
+#         home GET    /home(.:format)              static_controller#home
+#        about GET    /about(.:format)             static_controller#about
+#        sites GET    /sites(.:format)             static_controller#sites
 #
 
 Rails.application.routes.draw do
+  resources :users
+
+  resources :torrents
+
   root 'static_controller#home'
 
   get 'home' => 'static_controller#home'
@@ -23,8 +35,6 @@ Rails.application.routes.draw do
   get 'about' => 'static_controller#about'
 
   get 'sites' => 'static_controller#sites'
-
-  resources :torrents
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
